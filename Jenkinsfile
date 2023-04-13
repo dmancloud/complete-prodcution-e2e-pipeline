@@ -6,6 +6,17 @@ pipeline{
         jdk 'Java17'
         maven 'Maven3'
     }
+    
+    environment {
+
+        APP_NAME = "complete-prodcution-e2e-pipeline"
+        RELEASE = "0.0.1"
+        DOCKER_USER = "dmancloud"
+        DOCKER_PASS = 'dockerhub'
+        IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+        IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+    } 
+
     stages {
         stage("Cleanup Workspace") {
             steps {
@@ -53,6 +64,22 @@ pipeline{
             steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
+                }
+            }        
+        }
+
+        stage("Docker Build & Push") {
+            steps {
+                script {
+                    // Docker Build
+                    docker.withRegistry('',DOCKER_PASS) {
+                    docker_image = docker.build "${IMAGE_NAME}"
+                    }
+                    // Docker Push
+                    docker.withRegistry('',DOCKER_PASS) {
+                    docker_image.push("$IMAGE_TAG")
+                    docker_image.push('latest')
+                    }
                 }
             }        
         }
