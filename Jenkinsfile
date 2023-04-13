@@ -84,5 +84,16 @@ pipeline{
             }        
         }
 
+                stage("Clean up images") {
+            steps {
+                script {
+                    // Docker Build
+                    sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+                    sh "docker rmi ${IMAGE_NAME}:latest"
+                    }
+                }
+            }        
+        }
+
     }
 }
