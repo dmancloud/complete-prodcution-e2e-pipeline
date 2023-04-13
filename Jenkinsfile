@@ -30,5 +30,13 @@ pipeline{
                 }
             }        
         }
+
+        stage("Test Application") {
+            steps {
+                script {
+                    sh "mvn test"
+                }
+            }        
+        }
     }
 }
