@@ -38,5 +38,15 @@ pipeline{
                 }
             }        
         }
+
+        stage("Static Code Analysis") {
+            steps {
+                script {
+                    
+                    sh "mvn sonar:sonar"
+                }
+            }        
+        }
+
     }
 }
