@@ -18,7 +18,7 @@ pipeline{
         stage("Checkout Code") {
             steps {
                 script {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/dmancloud/complete-devops-pipeline'
+                    git branch: 'main', credentialsId: 'github-pat', url: 'https://github.com/dmancloud/complete-devops-pipeline'
                 }
             }        
         }
