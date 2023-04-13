@@ -1,0 +1,59 @@
+/* CSS for centering and styling the text */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 48px;
+    color: #007bff;
+    text-shadow: 2px 2px #fff;
+}
+
+.container {
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+.footer {
+    background-color: lightgrey;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-right {
+    display: flex;
+    gap: 10px;
+}
+
+/* Update the YouTube icon color to red */
+.youtube {
+    color: red;
+}
+
+/* Update the GitHub icon color to black */
+.github {
+    color: black;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
