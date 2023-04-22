@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      yamlFile 'builder.yaml'
+      yamlFile 'kaniko-builder.yaml'
     }
   }
   stages {
