@@ -1,14 +1,11 @@
 pipeline {
+
   agent {
     kubernetes {
       yamlFile 'kaniko-builder.yaml'
     }
   }
-  
-  tools {
-        jdk 'Java17'
-        maven 'Maven3'
-    }
+
 
   environment {
         APP_NAME = "complete-prodcution-e2e-pipeline"
