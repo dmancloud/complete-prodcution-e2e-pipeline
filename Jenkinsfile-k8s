@@ -32,7 +32,7 @@ pipeline {
 
         }
 
-    stage('Build with Kaniko') {
+    stage('Build & Push with Kaniko') {
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
           sh '''#!/busybox/sh
