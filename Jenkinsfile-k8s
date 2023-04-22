@@ -5,6 +5,13 @@ pipeline {
     }
   }
   stages {
+
+    stage("Cleanup Workspace") {
+            steps {
+                cleanWs()
+            }
+        }
+
     stage('Build with Kaniko') {
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
