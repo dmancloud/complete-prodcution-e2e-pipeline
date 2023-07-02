@@ -3,7 +3,7 @@ pipeline{
         label "jenkins-agent"
     }
     tools {
-        jdk 'Java17'
+        jdk 'Java11' // Changed from 'Java17' to 'Java11'
         maven 'Maven3'
     }
     environment {
@@ -22,7 +22,7 @@ pipeline{
     
         stage("Checkout from SCM"){
             steps {
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/dmancloud/complete-prodcution-e2e-pipeline'
+                git branch: 'master', credentialsId: 'github', url: 'https://github.com/thoimai/complete-prodcution-e2e-pipeline'
             }
 
         }
@@ -40,5 +40,7 @@ pipeline{
             }
 
         }
+    }
+}
         
         
